@@ -4,10 +4,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-
-import java.util.List;
-
-import model.Contact;
 import model.Response;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @RequestMapping("/v1/contact")
-@Api(value = "Contact services")
+@Api(value = "Contact services", tags = "Contact Services", description = "Contact Services")
 public interface ContactController {
     /**
      * Purpose: Fetch contacts.
@@ -36,5 +32,5 @@ public interface ContactController {
             @ApiResponse(code = 404, message = "Not Found", response = Response.class),
             @ApiResponse(code = 500, message = "Internal server error occured", response = Response.class) })
     @RequestMapping(value = "/{companyId}/{employeeId}/contacts", method = RequestMethod.GET)
-    Response<List<Contact>> getContacts(@PathVariable String employeeId, @PathVariable String companyId);
+    Response getContacts(@PathVariable String employeeId, @PathVariable String companyId);
 }

@@ -33,12 +33,12 @@ import springfox.documentation.swagger.web.SecurityConfiguration;
 import springfox.documentation.swagger.web.UiConfiguration;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import com.company.web.impl.ContactControllerImpl;
+import com.company.web.ContactController;
 import com.fasterxml.classmate.TypeResolver;
 
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan(basePackageClasses = { ContactControllerImpl.class })
+@ComponentScan(basePackageClasses = { ContactController.class })
 public class Application {
 
     public static void main(final String[] args) {
